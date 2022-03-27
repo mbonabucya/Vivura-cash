@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/menu1"
+        android:title="Delete Business" />
+
+    <item
+        android:id="@+id/menu2"
+        android:title="add Business" />
+
+    <item
+        android:id="@+id/menu3"
+        android:title="Export Report" />
+
+
+    <item
+        android:id="@+id/menu11"
+        android:title="General" />
+
+
+    <item
+        android:id="@+id/menu21"
+        android:title="Business Profile" />
+    <item
+        android:id="@+id/menu30"
+        android:title="Terms and conditions" />
+
+
+    <item
+        android:id="@+id/menu31"
+        android:title="Help" />
+    <item
+        android:id="@+id/menu32"
+        android:title="Feedback" />
+</menu>

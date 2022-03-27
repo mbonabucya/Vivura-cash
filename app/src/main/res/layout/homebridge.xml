@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarinbridge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_view_date"
+        android:layout_below="@+id/toolbarinbridge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="22dp"
+        android:textColor="@color/black"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="40dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/personalbridge"
+        android:layout_width="321dp"
+        android:layout_height="189dp"
+        android:layout_below="@id/text_view_date"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:height="167dp"
+        android:background="@color/white"
+        android:padding="0dp"
+        android:text="Personal"
+        android:textAllCaps="false"
+        android:textColor="@color/green"
+        android:textSize="30dp" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/businessbridge"
+        android:layout_width="276dp"
+        android:layout_height="179dp"
+        android:layout_below="@id/personalbridge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:height="167dp"
+        android:background="@color/white"
+        android:text="Business"
+        android:textColor="@color/green"
+        android:textSize="30dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    tools:context=".income_view_test">
+
+<!--recycler view for displaying our courses-->
+    <TextView
+        android:id="@+id/income_report_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Income report"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@color/greeny"
+        android:textSize="23dp"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/view"
+        android:layout_below="@+id/income_report_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:text="view current user"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_personal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="22dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/toolbar"/>
+
+    <TextView
+        android:id="@+id/netexp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="22dp"
+        android:text="Expenses :"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/netBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/netexp"
+        android:layout_marginTop="100dp"
+        android:text="Net Balance:"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+
+
+        />
+
+    <TextView
+        android:id="@+id/netinc"
+        android:layout_below="@id/netBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="22dp"
+        android:text="Income : "
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/netIncome"
+        android:layout_below="@+id/netBalance"
+        android:layout_toRightOf="@+id/netinc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="22dp"
+        android:text="Net Income:"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/green"/>
+
+    <TextView
+        android:id="@+id/net"
+        android:layout_below="@id/netIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="22dp"
+        android:text="Net Balance: "
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="22dp"/>
+    <TextView
+        android:id="@+id/netProfit"
+        android:layout_below="@id/netIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="22dp"
+        android:layout_toRightOf="@id/net"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+<TextView
+    android:id="@+id/separator"
+    android:layout_below="@id/net"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="22dp"
+    android:text="==================================================="
+    android:textColor="@color/black"
+    android:textStyle="bold"
+
+    />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cashin"
+        android:layout_below="@+id/separator"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/cashin"
+        android:background="@color/greeny"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        android:drawableLeft="@drawable/ic_baseline_add_circle_outline_24"
+
+/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cashout"
+        android:layout_width="220dp"
+        android:layout_below="@+id/cashin"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="@string/cashout"
+        android:background="@color/red"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        android:drawableLeft="@drawable/ic_baseline_remove_circle_outline_24"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/report"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cashout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:background="@color/blue"
+        android:drawableLeft="@drawable/ic_baseline_assessment_24"
+        android:text="@string/Report"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp" />
+
+
+</RelativeLayout>

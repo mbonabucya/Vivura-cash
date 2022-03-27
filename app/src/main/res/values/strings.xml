@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Vivura</string>
+    <string name="fname">Firstname</string>
+    <string name="lname">Lastname</string>
+    <string name="phone">Phone Number</string>
+    <string name="Home">Home</string>
+    <string name="cashin">Add Income</string>
+    <string name="cashout">Add Expenses</string>
+    <string name="Report">View Report</string>
+    <string name="hometitle">Vivura cash</string>
+    <string name="Welcome">Welcome</string>
+    <string name="login">Login</string>
+    <string name="register">Sign up</string>
+    <string name="account">Does not have account?</string>
+    <string name="reset">Reset Password</string>
+    <string name="save">Save</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Payment mode string array -->
+    <string-array name="payment">
+        <item>Cash</item>
+        <item>Mobile Banking</item>
+        <item>Bank Transfer</item>
+    </string-array>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".reset_activvity">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset Password"
+        android:textAlignment="center"
+        android:textColor="@color/greeny"
+        android:textSize="30dp"
+        android:textAllCaps="false"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:layout_below="@id/textview"
+        android:src="@drawable/img"/>
+
+    <EditText
+        android:id="@+id/reset_pass_phone"
+        android:layout_below="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:inputType="phone"
+        />
+    <EditText
+        android:id="@+id/old_password"
+        android:layout_below="@id/reset_pass_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:hint=" password"
+        android:drawableLeft="@drawable/ic_baseline_lock_open_24"
+        android:drawablePadding="5dp"
+        />
+
+    <EditText
+        android:id="@+id/New_password"
+        android:layout_below="@id/old_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:hint="Re-enter Password"
+        android:drawableLeft="@drawable/ic_baseline_lock_open_24"
+        android:drawablePadding="5dp"
+        android:textSize="20dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_pass"
+        android:layout_width="249dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/New_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:padding="0dp"
+        android:text="@string/reset"
+        android:textAllCaps="false"
+        android:textColor="@color/green"
+        android:textSize="20dp" />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.vivuracash">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/img_2"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VivuraCash">
+        <activity
+            android:name=".income_view_test"
+            android:exported="false" />
+        <activity
+            android:name=".Personal_expense_report"
+            android:exported="false" />
+        <activity
+            android:name=".Personal_income_report_fragment"
+            android:exported="false" />
+        <activity
+            android:name=".splash"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.VivuraCash.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".registerActivity" />
+        <activity android:name=".homebridge" />
+        <activity android:name=".BusinessActivity" />
+        <activity android:name=".personalActivity" />
+        <activity android:name=".loginActivity" />
+        <activity android:name=".CashIn" />
+        <activity android:name=".Cashout" />
+        <activity android:name=".Report" />
+        <activity android:name=".businessDetails" />
+        <activity android:name=".Password_activity" />
+        <activity android:name=".reset_activvity" />
+    </application>
+
+</manifest>
