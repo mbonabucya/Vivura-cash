@@ -32,15 +32,18 @@ public class homebridge extends AppCompatActivity {
         business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(getApplicationContext(),BusinessActivity.class);
-                startActivity(i);
+                Intent intent =new Intent(getApplicationContext(),BusinessActivity.class);
+                startActivity(intent);
             }
         });
         personal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(getApplicationContext(),personalActivity.class);
-                startActivity(i);
+                String id=getIntent().getStringExtra("phoneId");
+                System.out.println("Numero yawe ni :"+id);
+                Intent intent =new Intent(getApplicationContext(),personalActivity.class);
+                intent.putExtra("userId",id);
+                startActivity(intent);
 
             }
         });

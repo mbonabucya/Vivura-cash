@@ -29,8 +29,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create Table users(First_Name TEXT,Last_Name TEXT, phone TEXT primary key, password TEXT)");
-        sqLiteDatabase.execSQL("create Table table1(CashIn_id INTEGER primary key AUTOINCREMENT,amount INTEGER,reason TEXT,payment_mode TEXT,created_at TEXT,item TeXT,FOREIGN KEY (CashIn_id) REFERENCES users(phone))");
-        sqLiteDatabase.execSQL("create Table table2(Cashout_id INTEGER primary key AUTOINCREMENT,Out_amount INTEGER,Out_reason TEXT,Out_payment_mode TEXT,created_at TEXT,activity TeXT,FOREIGN KEY (Cashout_id) REFERENCES users(phone))");
+        sqLiteDatabase.execSQL("create Table table1(CashIn_id INTEGER primary key AUTOINCREMENT,amount INTEGER,reason TEXT,payment_mode TEXT,created_at TEXT,item TEXT,user_id TEXT,FOREIGN KEY (CashIn_id) REFERENCES users(phone))");
+        sqLiteDatabase.execSQL("create Table table2(Cashout_id INTEGER primary key AUTOINCREMENT,Out_amount INTEGER,Out_reason TEXT,Out_payment_mode TEXT,created_at TEXT,activity TEXT,user_id TEXT,FOREIGN KEY (Cashout_id) REFERENCES users(phone))");
         sqLiteDatabase.execSQL("create Table table3(Report_id INTEGER primary key AUTOINCREMENT, Biz_name TEXT, Biz_contact TEXT,FOREIGN KEY (Report_id) REFERENCES users(phone))");
         sqLiteDatabase.execSQL("PRAGMA foreign_keys=ON;");
 
@@ -117,7 +117,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 //chash in  adding income in personal
-    public Boolean add_income(int AMOUNT, String REASON, String  PAYMENT,String ITEM) {
+    public Boolean add_income(int AMOUNT, String REASON, String  PAYMENT,String ITEM,String user_Id) {
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -127,6 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("payment_mode",PAYMENT);
         values.put("created_at", getDateTime());
         values.put("item",ITEM);
+        values.put("user_id",user_Id);
 
 
 
@@ -141,7 +142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     ///add cash out
-    public Boolean add_expenses(int AMOUNT, String REASON, String  PAYMENT,String activity) {
+    public Boolean add_expenses(int AMOUNT, String REASON, String  PAYMENT,String activity,String user_Id) {
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -151,6 +152,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("Out_payment_mode",PAYMENT);
         values.put("created_at",getDateTime());
         values.put("activity",activity);
+        values.put("user_id",user_Id);
 
         long results = sqLiteDatabase.insert("table2", null, values);
         if (results == -1) {
@@ -191,7 +193,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // on below line we are creating a cursor with query to read data from database.
-        Cursor cursor_Personal_income = db.rawQuery("SELECT * FROM table1 ORDER BY Cashin_id DESC where " , null);
+        Cursor cursor_Personal_income = db.rawQuery("SELECT * FROM table1 ORDER BY Cashin_id DESC " , null);
         //Cursor cursor = db.rawQuery("select * from table1 where phone=?", new String[]{phone});
         // on below line we are creating a new array list.
         ArrayList<Income_Personal_Model> Income_ModalArrayList = new ArrayList<>();
@@ -295,12 +297,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;*/
     }
 
-public int TotalIncome() {
+public int TotalIncome(String id) {
     int total= 0;
     SQLiteDatabase db = getReadableDatabase();
 
     Cursor cursor = db.rawQuery(
-            "SELECT SUM(amount) FROM table1", null);
+            "SELECT SUM(amount) FROM table1 where user_id=?", new String[]{id});
     if (cursor.moveToFirst()) {
         total= cursor.getInt(0);
     }
@@ -309,11 +311,11 @@ public int TotalIncome() {
 
 }
 
-public int TotalExpense(){
+public int TotalExpense(String  id){
         int expenses=0;
 
         SQLiteDatabase db= getReadableDatabase();
-        Cursor cursor=db.rawQuery("SELECT SUM(Out_amount) from table2",null);
+        Cursor cursor=db.rawQuery("SELECT SUM(Out_amount) from table2 where  user_id=?", new String[]{id});
         if (cursor.moveToFirst()){
             expenses=cursor.getInt(0);
         }
@@ -322,10 +324,10 @@ public int TotalExpense(){
 }
 
 
-public int TotalBalance(){
+public int TotalBalance(String id){
         int balance=0;
-       int expenses=  TotalExpense();
-       int income= TotalIncome();
+       int expenses=  TotalExpense(id);
+       int income= TotalIncome(id);
 
        balance =income-expenses;
 
@@ -337,7 +339,7 @@ public int TotalBalance(){
         SQLiteDatabase db = this.getReadableDatabase();
 
         // on below line we are creating a cursor with query to read data from database.
-        Cursor cursor_Personal_income = db.rawQuery("SELECT * FROM table1 ORDER BY CashIn_id DESC" , null);
+        Cursor cursor_Personal_income = db.rawQuery("SELECT * FROM table1   ORDER BY CashIn_id DESC" , null);
         //Cursor cursor = db.rawQuery("select * from table1 where phone=?", new String[]{phone});
         // on below line we are creating a new array list.
         ArrayList<Income_Personal_Model> Income_ModalArrayList = new ArrayList<>();

@@ -48,6 +48,7 @@ public class loginActivity extends  AppCompatActivity {
                     if (CheckUserPass==true){
                         Toast.makeText(loginActivity.this, "You are logged in", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(getApplicationContext(),homebridge.class);
+                        intent.putExtra("phoneId",username);
                         startActivity(intent);
                     }
                     else{

@@ -23,12 +23,14 @@ public class personalActivity extends AppCompatActivity {
     private TextView netInc,netBal,profit;
     DatabaseHelper db;
 
+    String userId;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personal_layout);
-
+        userId=getIntent().getStringExtra("userId");
 Toolbar tBar =(Toolbar)findViewById(R.id.mytoolbar);
 setSupportActionBar(tBar);
 
@@ -43,29 +45,33 @@ setSupportActionBar(tBar);
       incomebtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent i =new Intent(personalActivity.this,CashIn.class);
-              startActivity(i);
+              Intent intent =new Intent(personalActivity.this,CashIn.class);
+              userId=getIntent().getStringExtra("userId");
+              intent.putExtra("user_id",userId);
+              startActivity(intent);
           }
       });
       expensebtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent i =new Intent(personalActivity.this,Cashout.class);
-              startActivity(i);
+              Intent intent =new Intent(personalActivity.this,Cashout.class);
+              userId=getIntent().getStringExtra("userId");
+              intent.putExtra("user_id",userId);
+              startActivity(intent);
           }
       });
       reportbtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent i =new Intent(personalActivity.this,Report.class);
-              startActivity(i);
+              Intent intent =new Intent(personalActivity.this,Report.class);
+              intent.putExtra("user_id",userId);
+              System.out.println("Numero yawe ni :"+userId);
+              startActivity(intent);
           }
       });
-
-
-        netInc.setText("+" + db.TotalIncome() +" "+ "RWF");
-        netBal.setText("-"+ db.TotalExpense()+" "+"Rwf");
-        profit.setText(""+db.TotalBalance()+" "+"RWF");
+        netInc.setText("+" + db.TotalIncome(userId) +" "+ "RWF");
+        netBal.setText("-"+ db.TotalExpense(userId)+" "+"Rwf");
+        profit.setText(""+db.TotalBalance(userId)+" "+"RWF");
          /*
         Cursor cursor =db.calculatingTotalIncome();
         if (cursor.getCount()==0)

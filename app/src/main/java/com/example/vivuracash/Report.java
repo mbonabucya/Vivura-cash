@@ -56,12 +56,12 @@ public class Report extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inte =new Intent(getApplicationContext(),personalActivity.class);
-                startActivity(inte);
+                Intent intent =new Intent(getApplicationContext(),personalActivity.class);
+                startActivity(intent);
             }
         });
 
-
-        netbalances.setText(" "+db.TotalBalance()+"RWF");
+        String userId=getIntent().getStringExtra("user_id");
+        netbalances.setText(" "+db.TotalBalance(userId)+"RWF");
     }
 }

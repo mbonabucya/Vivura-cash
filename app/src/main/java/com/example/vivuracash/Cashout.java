@@ -64,7 +64,8 @@ DatabaseHelper db;
                     cashout_reason.setError("please enter text only");
                 }
                 else{
-                    Boolean insert =db.add_expenses(expense,reseaux,spin,action);
+                    String user_id=getIntent().getStringExtra("user_id");
+                    Boolean insert =db.add_expenses(expense,reseaux,spin,action,user_id);
                     if(insert==true){
                         Toast.makeText(Cashout.this," expense added successfully",Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(getApplicationContext(),Cashout.class);
@@ -76,11 +77,6 @@ DatabaseHelper db;
                     }
 
                 }
-
-
-
-
-
             }
         });
 
@@ -88,6 +84,8 @@ cancel_btn.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent inte=new Intent(Cashout.this,Report.class);
+        String userId=getIntent().getStringExtra("userId");
+        inte.putExtra("user_id",userId);
         startActivity(inte);
     }
 });
@@ -95,6 +93,8 @@ cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent inte =new Intent(getApplicationContext(),personalActivity.class);
+                String userId=getIntent().getStringExtra("userId");
+                inte.putExtra("user_id",userId);
                 startActivity(inte);
             }
         });
