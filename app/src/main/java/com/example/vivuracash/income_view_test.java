@@ -16,7 +16,7 @@ public class income_view_test extends AppCompatActivity {
     private Income_report_rv_adapter adapter;
     private ArrayList<Income_Personal_Model> incomeModalList;
     DatabaseHelper db;
-String ULR ="http://127.0.0.1:8000/CashFlows/";
+    String ULR ="http://127.0.0.1:8000/CashFlows/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -23,12 +23,13 @@ public class Cashout extends AppCompatActivity {
 Button save_btn , cancel_btn;
 EditText cashout_amt, cashout_reason,activity;
 private ImageButton  back_btn;
+    String  userId;
 DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cashout_layout);
-
+         userId=getIntent().getStringExtra("user_id");
         Spinner spinner=findViewById(R.id.payment_spinner);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.payment, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -68,8 +69,7 @@ DatabaseHelper db;
                     Boolean insert =db.add_expenses(expense,reseaux,spin,action,user_id);
                     if(insert==true){
                         Toast.makeText(Cashout.this," expense added successfully",Toast.LENGTH_SHORT).show();
-                        Intent intent =new Intent(getApplicationContext(),Cashout.class);
-                        startActivity(intent);
+
                     }
                     else
                     {
@@ -84,7 +84,6 @@ cancel_btn.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent inte=new Intent(Cashout.this,Report.class);
-        String userId=getIntent().getStringExtra("userId");
         inte.putExtra("user_id",userId);
         startActivity(inte);
     }
@@ -93,7 +92,6 @@ cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent inte =new Intent(getApplicationContext(),personalActivity.class);
-                String userId=getIntent().getStringExtra("userId");
                 inte.putExtra("user_id",userId);
                 startActivity(inte);
             }

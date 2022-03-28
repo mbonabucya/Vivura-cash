@@ -26,6 +26,7 @@ public class CashIn extends AppCompatActivity {
     private TextView NetIncome;
     private ImageButton back_btn;
 
+    String userId;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +64,12 @@ public class CashIn extends AppCompatActivity {
                reason.setError("please enter text only");
            }
            else{
-               String userId=getIntent().getStringExtra("user_id"
-               );
+
                Boolean insert =db.add_income(finalamount,reseaux,spin,activity,userId);
                if(insert==true){
                    Toast.makeText(CashIn.this," Income added successfully",Toast.LENGTH_SHORT).show();
-                   Intent intent =new Intent(getApplicationContext(),CashIn.class);
-                   startActivity(intent);
+//                   Intent intent =new Intent(getApplicationContext(),CashIn.class);
+//                   startActivity(intent);
                }
                else
                {
@@ -85,6 +85,8 @@ public class CashIn extends AppCompatActivity {
        @Override
        public void onClick(View view) {
            Intent i =new Intent(CashIn.this,Report.class);
+           userId=getIntent().getStringExtra("user_id");
+           i.putExtra("user_id",userId);
            startActivity(i);
        }
    });
@@ -93,6 +95,8 @@ public class CashIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inte =new Intent(getApplicationContext(),personalActivity.class);
+                userId=getIntent().getStringExtra("user_id");
+                inte.putExtra("user_id",userId);
                 startActivity(inte);
             }
         });

@@ -57,6 +57,8 @@ public class Report extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getApplicationContext(),personalActivity.class);
+                String userId=getIntent().getStringExtra("user_id");
+                intent.putExtra("user_id",userId);
                 startActivity(intent);
             }
         });

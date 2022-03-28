@@ -42,7 +42,7 @@ public class homebridge extends AppCompatActivity {
                 String id=getIntent().getStringExtra("phoneId");
                 System.out.println("Numero yawe ni :"+id);
                 Intent intent =new Intent(getApplicationContext(),personalActivity.class);
-                intent.putExtra("userId",id);
+                intent.putExtra("user_id",id);
                 startActivity(intent);
 
             }

@@ -30,7 +30,7 @@ public class personalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personal_layout);
-        userId=getIntent().getStringExtra("userId");
+        userId=getIntent().getStringExtra("user_id");
 Toolbar tBar =(Toolbar)findViewById(R.id.mytoolbar);
 setSupportActionBar(tBar);
 
@@ -46,7 +46,7 @@ setSupportActionBar(tBar);
           @Override
           public void onClick(View view) {
               Intent intent =new Intent(personalActivity.this,CashIn.class);
-              userId=getIntent().getStringExtra("userId");
+              userId=getIntent().getStringExtra("user_id");
               intent.putExtra("user_id",userId);
               startActivity(intent);
           }
@@ -55,7 +55,7 @@ setSupportActionBar(tBar);
           @Override
           public void onClick(View view) {
               Intent intent =new Intent(personalActivity.this,Cashout.class);
-              userId=getIntent().getStringExtra("userId");
+              userId=getIntent().getStringExtra("user_id");
               intent.putExtra("user_id",userId);
               startActivity(intent);
           }
@@ -69,9 +69,20 @@ setSupportActionBar(tBar);
               startActivity(intent);
           }
       });
+
+        System
+                .out.println(
+                        "IYI NIYO USER ID kumu User"+userId
+        );
+
+        userId=getIntent().getStringExtra("user_id");
+
         netInc.setText("+" + db.TotalIncome(userId) +" "+ "RWF");
         netBal.setText("-"+ db.TotalExpense(userId)+" "+"Rwf");
         profit.setText(""+db.TotalBalance(userId)+" "+"RWF");
+
+
+
          /*
         Cursor cursor =db.calculatingTotalIncome();
         if (cursor.getCount()==0)
