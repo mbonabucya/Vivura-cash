@@ -24,7 +24,7 @@ Button save_btn , cancel_btn;
 EditText cashout_amt, cashout_reason,activity;
 private ImageButton  back_btn;
     String  userId;
-DatabaseHelper db;
+    DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +67,7 @@ DatabaseHelper db;
                 else{
                     String user_id=getIntent().getStringExtra("user_id");
                     Boolean insert =db.add_expenses(expense,reseaux,spin,action,user_id);
-                    if(insert==true){
+                    if(insert){
                         Toast.makeText(Cashout.this," expense added successfully",Toast.LENGTH_SHORT).show();
 
                     }

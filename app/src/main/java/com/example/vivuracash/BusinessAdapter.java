@@ -20,7 +20,7 @@ import java.util.List;
 
 class businessAdapter extends RecyclerView.Adapter<businessAdapter.ViewHolder> {
 
-    private List<businessModel>MybusinessList;
+    private final List<businessModel>MybusinessList;
     private Context ctx;
 
 
@@ -44,12 +44,12 @@ class businessAdapter extends RecyclerView.Adapter<businessAdapter.ViewHolder> {
         String businessName= MybusinessList.get(position).getBusiness_name_text();
         String businessContact =MybusinessList.get(position).getBusiness_contact_text();
         holder.setData(resource,businessName,businessContact);
-        holder.name.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(ctx,businessDetails.class) ;
                 intent.putExtra("logo",resource);
-                intent.putExtra("Business_name",businessName);
+                intent.putExtra("business_name",businessName);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 ctx.startActivity(intent);
             }
@@ -94,6 +94,7 @@ class businessAdapter extends RecyclerView.Adapter<businessAdapter.ViewHolder> {
         private TextView name,contact,options_menu;
 
         public ViewHolder(@NonNull View itemView) {
+
             super(itemView);
             my_logo =itemView.findViewById(R.id.logo);
             name= itemView.findViewById(R.id.business_name_text);
@@ -103,6 +104,7 @@ class businessAdapter extends RecyclerView.Adapter<businessAdapter.ViewHolder> {
         }
 
         public void setData(int resource, String businessName, String businessContact) {
+            resource=R.drawable.img;
 
             my_logo.setImageResource(resource);
             name.setText(businessName);

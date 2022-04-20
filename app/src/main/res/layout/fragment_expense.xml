@@ -9,110 +9,113 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/cashouttxtview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="115dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:text="CashOut"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/greeny"/>
 
-            <EditText
-                android:id="@+id/category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="item"
-                android:importantForAutofill="auto"
-                android:layout_below="@+id/cashouttxtview"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:textSize="20dp"
-                />
+        <TextView
+            android:id="@+id/cashoutText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="CashOut"
+            android:textColor="@color/greeny"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <EditText
-            android:id="@+id/quantity"
-            android:layout_below="@+id/category"
+            android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
+            android:layout_below="@+id/cashoutText"
             android:layout_marginLeft="30dp"
-            android:hint="quantity"
-            />
+            android:layout_marginRight="30dp"
+            android:hint="item"
+            android:importantForAutofill="auto"
+            android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/editTextNumberDecimal"
-                android:layout_below="@+id/quantity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="Amount"
-                android:inputType="numberDecimal"
-                android:textColorHint="@color/black" />
+        <EditText
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/category"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:hint="quantity" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quantity"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:ems="10"
+            android:hint="Amount"
+            android:inputType="numberDecimal"
+            android:textColorHint="@color/black" />
 
 
-            <EditText
-                android:id="@+id/editTextTextMultiLine"
-                android:layout_below="@+id/editTextNumberDecimal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:ems="10"
-                android:hint="Reason"
-                android:inputType="textMultiLine"
-                android:textColorHint="@color/black" />
+        <EditText
+            android:id="@+id/reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/amount"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:ems="10"
+            android:hint="Reason"
+            android:inputType="textMultiLine"
+            android:textColorHint="@color/black" />
 
-                <TextView
-                    android:id="@+id/cashoutpaymenttxt"
-                    android:layout_below="@+id/editTextTextMultiLine"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="22dp"
-                    android:layout_marginTop="22dp"
-                    android:text="Payment Mode"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-                <Spinner
-                    android:id="@+id/payment_spinner"
-                    android:layout_below="@+id/editTextTextMultiLine"
-                    android:layout_toRightOf="@+id/cashoutpaymenttxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:spinnerMode="dropdown"
-                    android:layout_marginTop="22dp"/>
+        <TextView
+            android:id="@+id/cashoutpaymenttxt"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reason"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="22dp"
+            android:text="Payment Mode"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/save"
-                android:layout_below="@+id/cashoutpaymenttxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="22dp"
-                android:text="Save"
-                android:background="@color/greeny"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:textSize="20dp"/>
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/cancel"
-                android:layout_below="@+id/cashoutpaymenttxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="22dp"
-                android:text="Cancel"
-                android:background="@color/greeny"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:textSize="20dp"
-                />
+        <Spinner
+            android:id="@+id/payment_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cashoutpaymenttxt"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="-24dp"
+            android:layout_toRightOf="@+id/cashoutpaymenttxt"
+            android:spinnerMode="dropdown" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cashoutpaymenttxt"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="65dp"
+            android:background="@color/greeny"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cashoutpaymenttxt"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="65dp"
+            android:background="@color/greeny"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
 
     </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.vivuracash;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -46,10 +47,26 @@ public class loginActivity extends  AppCompatActivity {
                 {
                     Boolean CheckUserPass= db.checkUsernamePassword(username,pass);
                     if (CheckUserPass==true){
+                        // Storing data into SharedPreferences
+                        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+
+                            // Creating an Editor object to edit(write to the file)
+                                                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+                            // Storing the key and its value as the data fetched from edittext
+                                                    myEdit.putString("user_id", user.getText().toString());
+
+                            // Once the changes have been made,
+                            // we need to commit to apply those changes made,
+                            // otherwise, it will throw an error
+                        myEdit.commit();
+
                         Toast.makeText(loginActivity.this, "You are logged in", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(getApplicationContext(),homebridge.class);
                         intent.putExtra("phoneId",username);
                         startActivity(intent);
+                        user.setText("");
+                        password.setText("");
                     }
                     else{
                         Toast.makeText(loginActivity.this, "Username or password is incorrect", Toast.LENGTH_SHORT).show();
@@ -77,6 +94,8 @@ public class loginActivity extends  AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent =new Intent(getApplicationContext(),Password_activity.class);
+                intent.putExtra("phoneId",user.getText()
+                .toString());
                 startActivity(intent);
             }
         });

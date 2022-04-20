@@ -23,6 +23,7 @@ public class Password_activity extends AppCompatActivity {
         Phonenumber = findViewById(R.id.pass_username);
         db= new DatabaseHelper(this);
 
+        Phonenumber.setText(getIntent().getStringExtra("phoneId"));
         resetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

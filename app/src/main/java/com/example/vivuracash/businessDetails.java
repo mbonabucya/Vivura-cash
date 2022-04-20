@@ -1,5 +1,6 @@
 package com.example.vivuracash;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,11 +23,16 @@ public class businessDetails extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.business_detail_layout);
+        String businessName=getIntent().getStringExtra("business_name");
 
+        System.out.println(
+                "business name is "+businessName
+        );
         detail_businessName =findViewById(R.id.detail_txt);
         detail_logo=findViewById(R.id.detail_logo);
         detail_logo.setImageResource(getIntent().getIntExtra("logo",0));
-        detail_businessName.setText(getIntent().getStringExtra("Business_name"));
+        detail_businessName.setText(businessName);
+
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
         tabLayout.addTab(tabLayout.newTab().setText("CASH IN"));
@@ -47,6 +53,7 @@ public class businessDetails extends AppCompatActivity {
             }
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 

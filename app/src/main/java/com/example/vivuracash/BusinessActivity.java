@@ -1,10 +1,7 @@
 package com.example.vivuracash;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,17 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -81,7 +73,7 @@ public class BusinessActivity extends AppCompatActivity{
                 if(TextUtils.isEmpty(myBusiness)||TextUtils.isEmpty(myContact)){
                     businessName.requestFocus();
                     businessName.setError("Business name is required");
-                   biz_contact.requestFocus();
+                    biz_contact.requestFocus();
                     biz_contact.setError("Business contact is required");
 
                 }
@@ -91,13 +83,13 @@ public class BusinessActivity extends AppCompatActivity{
 
                 }
                 else{
-                    Boolean insert =db.add_biz(myBusiness,myContact);
-                    if(insert==true){
-                        Toast.makeText(getApplicationContext()," business is added successfully",Toast.LENGTH_SHORT).show();
-                        //Intent intent =new Intent(getApplicationContext(),CashIn.c);
-                       // startActivity(intent);
-                        dialog.cancel();
 
+                    Boolean insert =db.add_biz(myBusiness,myContact);
+                    if(insert){
+                        Toast.makeText(getApplicationContext()," business is added successfully",Toast.LENGTH_SHORT).show();
+                        dialog.cancel();
+                        startActivity(getIntent());
+                        finish();
                     }
                     else
                     {
@@ -108,21 +100,19 @@ public class BusinessActivity extends AppCompatActivity{
 
             }
         });
-
-
         dialog.show();
-
     }
 
     private void initData() {
 
         MybusinessList =new ArrayList<>();
+        db = new DatabaseHelper(this);
+        MybusinessList= db.readBusiness();
 
-
-        MybusinessList.add(new businessModel(R.drawable.img,"Katheos Group","+250783784590"));
-        MybusinessList.add(new businessModel(R.drawable.img_1,"Jtech ltd","+250783783267"));
-        MybusinessList.add(new businessModel(R.drawable.img_2,"WEC","+250788246645"));
-        MybusinessList.add(new businessModel(R.drawable.img_1,"ADls","+25078378"));
+//        MybusinessList.add(new businessModel("Katheos Group","+250783784590"));
+//        MybusinessList.add(new businessModel("Jtech ltd","+250783783267"));
+//        MybusinessList.add(new businessModel("WEC","+250788246645"));
+//        MybusinessList.add(new businessModel("ADls","+2507837887"));
     }
 
     private void initRecylerview() {

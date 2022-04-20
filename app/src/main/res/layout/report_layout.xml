@@ -68,13 +68,12 @@ android:layout_height="match_parent"
 android:layout_below="@+id/relative"
 android:layout_marginTop="10dp">
 
-<com.google.android.material.tabs.TabLayout
-    android:id="@+id/tabLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/greeny"
-    app:tabTextColor="@color/white">
-</com.google.android.material.tabs.TabLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greeny"
+        app:tabTextColor="@color/white"></com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

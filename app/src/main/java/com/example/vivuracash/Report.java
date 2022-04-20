@@ -64,6 +64,10 @@ public class Report extends AppCompatActivity {
         });
 
         String userId=getIntent().getStringExtra("user_id");
+        System.out.println("Gucheckinga id"+userId);
         netbalances.setText(" "+db.TotalBalance(userId)+"RWF");
+    }
+    public String getUserId(){
+        return getIntent().getStringExtra("user_id");
     }
 }

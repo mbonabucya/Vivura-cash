@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class personal_expense_rv_adapter extends RecyclerView.Adapter<personal_expense_rv_adapter.ViewHolder> {
-    private List<personal_expenses_Model> MY_expenses_list;
+public class business_report_expense_rv_adapter extends RecyclerView.Adapter<business_report_expense_rv_adapter.ViewHolder> {
+    private List<business_expenses_model> MY_expenses_list;
     private Context ctx;
 
-    public personal_expense_rv_adapter(List<personal_expenses_Model> MY_expenses_list,Context ctx){
+    public business_report_expense_rv_adapter(List<business_expenses_model> MY_expenses_list, Context ctx){
 
         this.MY_expenses_list =MY_expenses_list;
         this.ctx=ctx;
     }
-    public void filterList(ArrayList<personal_expenses_Model> filterllist) {
+    public void filterList(ArrayList<business_expenses_model> filterllist) {
         MY_expenses_list = filterllist;
         notifyDataSetChanged();
     }
@@ -29,17 +29,17 @@ public class personal_expense_rv_adapter extends RecyclerView.Adapter<personal_e
 
     @NonNull
     @Override
-    public personal_expense_rv_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View myView = LayoutInflater.from(parent.getContext()).inflate(R.layout.personal_expenses_rv_layout,parent,false);
-        personal_expense_rv_adapter.ViewHolder holder= new personal_expense_rv_adapter.ViewHolder(myView);
+    public business_report_expense_rv_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View myView = LayoutInflater.from(parent.getContext()).inflate(R.layout.business_expenses_rv_layout,parent,false);
+        business_report_expense_rv_adapter.ViewHolder holder= new business_report_expense_rv_adapter.ViewHolder(myView);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull personal_expense_rv_adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull business_report_expense_rv_adapter.ViewHolder holder, int position) {
         String Amount =MY_expenses_list.get(position).getAmount();
         String desc =MY_expenses_list.get(position).getDescription();
-        String Itali=MY_expenses_list.get(position).getItaliki();
+        String Itali=MY_expenses_list.get(position).getDate();
         String activity=MY_expenses_list.get(position).getActivity();
         holder.setData(Amount,activity,Itali,desc);
     }

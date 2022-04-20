@@ -64,9 +64,10 @@ public class CashIn extends AppCompatActivity {
                reason.setError("please enter text only");
            }
            else{
-
+               userId=getIntent().getStringExtra("user_id");
                Boolean insert =db.add_income(finalamount,reseaux,spin,activity,userId);
-               if(insert==true){
+               if(insert){
+
                    Toast.makeText(CashIn.this," Income added successfully",Toast.LENGTH_SHORT).show();
 //                   Intent intent =new Intent(getApplicationContext(),CashIn.class);
 //                   startActivity(intent);

@@ -26,7 +26,8 @@ public class income_view_test extends AppCompatActivity {
         db =new DatabaseHelper(this );
         recyclerView=findViewById(R.id.recycler_personal);
         incomeModalList=new ArrayList<>();
-        incomeModalList= db.Show_personal_income();
+        String userId=getIntent().getStringExtra("user_id");
+        incomeModalList= db.Show_personal_income(userId);
         adapter=new Income_report_rv_adapter(incomeModalList,income_view_test.this);
         LinearLayoutManager l= new LinearLayoutManager(income_view_test.this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(l);

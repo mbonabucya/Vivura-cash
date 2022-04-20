@@ -12,6 +12,8 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class homebridge extends AppCompatActivity {
+    private String id;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class homebridge extends AppCompatActivity {
         personal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id=getIntent().getStringExtra("phoneId");
+                 id=getIntent().getStringExtra("phoneId");
                 System.out.println("Numero yawe ni :"+id);
                 Intent intent =new Intent(getApplicationContext(),personalActivity.class);
                 intent.putExtra("user_id",id);
@@ -48,5 +50,9 @@ public class homebridge extends AppCompatActivity {
             }
         });
 
+    }
+    public String getUserId(){
+
+        return id;
     }
 }

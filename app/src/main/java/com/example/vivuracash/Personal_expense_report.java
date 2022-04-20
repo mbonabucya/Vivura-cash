@@ -15,7 +15,7 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class Personal_expense_report extends Fragment {
+public class Personal_expense_report extends Fragment{
     private RecyclerView recyclerView;
     private personal_expense_rv_adapter adapter;
     private ArrayList<personal_expenses_Model> ExpenseModalList;
@@ -40,7 +40,9 @@ public class Personal_expense_report extends Fragment {
         recyclerView.setHasFixedSize(true);
         ExpenseModalList = new ArrayList<>();
         db = new DatabaseHelper(view.getContext());
-        ExpenseModalList = db.Show_personal_Expenses();
+        Report rpt=(Report)getActivity();
+        String userId=rpt.getUserId();
+        ExpenseModalList = db.Show_personal_Expenses(userId);
         adapter = new personal_expense_rv_adapter(ExpenseModalList, getActivity());
         LinearLayoutManager l = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(l);

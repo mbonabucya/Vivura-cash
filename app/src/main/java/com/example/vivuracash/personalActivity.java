@@ -31,8 +31,8 @@ public class personalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personal_layout);
         userId=getIntent().getStringExtra("user_id");
-Toolbar tBar =(Toolbar)findViewById(R.id.mytoolbar);
-setSupportActionBar(tBar);
+        Toolbar tBar =(Toolbar)findViewById(R.id.mytoolbar);
+        setSupportActionBar(tBar);
 
       incomebtn=(Button) findViewById(R.id.cashin);
       expensebtn=(Button) findViewById(R.id.cashout);
