@@ -37,6 +37,14 @@
             android:textColor="@color/green"
             android:textSize="18dp" />
 
+        <Button
+            android:id="@+id/bus_report_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="GeneratePdf"
+            android:layout_toEndOf="@+id/busy_balance" />
+
     </RelativeLayout>
 
 <RelativeLayout

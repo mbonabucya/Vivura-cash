@@ -8,59 +8,69 @@
     android:layout_height="match_parent"
     tools:context=".Report">
 
-<RelativeLayout
-    android:id="@+id/relative"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/ic_baseline_arrow_back_24"
-        android:background="@color/greeny"
-          />
-
-    <TextView
-        android:id="@+id/myreport"
+    <RelativeLayout
+        android:id="@+id/relative"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/backButton"
-        android:height="40dp"
-        android:background="@color/greeny"
-        android:text="Personal Report"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30dp"
+        android:layout_height="wrap_content">
 
-        />
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/greeny"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
 
-    <TextView
-        android:id="@+id/mybalance"
-        android:layout_below="@+id/myreport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:height="40dp"
-       android:textStyle="bold"
-        android:text="Net Balance: "
-        android:textColor="@color/black"
-        android:textSize="20dp"
-       android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-     />
-    <TextView
-        android:id="@+id/balance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myreport"
-        android:layout_toRightOf="@+id/mybalance"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/green"
-        android:height="40dp"
-        android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/myreport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/backButton"
+            android:height="40dp"
+            android:background="@color/greeny"
+            android:text="Personal Report"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30dp"
 
-</RelativeLayout>
+            />
+
+        <TextView
+            android:id="@+id/mybalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myreport"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:height="40dp"
+            android:text="Net Balance: "
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myreport"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/mybalance"
+            android:height="40dp"
+            android:textColor="@color/green"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/generate_pdf_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myreport"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@id/balance"
+            android:text="Generate pdf" />
+
+    </RelativeLayout>
 
 <RelativeLayout
 android:layout_width="match_parent"
